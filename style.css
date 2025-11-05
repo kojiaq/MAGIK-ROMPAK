@@ -1,0 +1,568 @@
+/*
+ * Gaya Design: Minimal, Clean, Professional (Dark Red & Black)
+ * Font: Inter
+ * Tema: Projek Filem Aksi Fantasi - Dark, Intense
+ */
+
+:root {
+    --color-primary: #8B0000; /* Merah Gelap / Maroon (Aura Darah/Aksi) */
+    --color-secondary: #0A0A0A; /* Hitam Hampir Penuh (Aura Gelap) */
+    --color-background-light: #F8F8F8; /* Hampir Putih */
+    --color-text-light: #F8F8F8;
+    --color-text-dark: #333333;
+    --color-accent: #B00000; /* Merah Lebih Cerah untuk hover */
+    --spacing-unit: 20px;
+    --border-radius: 8px;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    background-color: var(--color-background-light);
+    background-image: url('koop.jpg');
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-accent);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    font-weight: 800;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* --- 1. Navigation Bar --- */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.95);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    padding: 15px 0;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.3em; 
+    font-weight: 900;
+    color: var(--color-primary); 
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: var(--color-text-light);
+    font-weight: 500;
+    font-size: 0.95em;
+    position: relative;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.nav-links a:hover {
+    color: var(--color-primary);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* --- 2. Hero Section (GAMBAR LATAR BELAKANG) --- */
+.hero-section {
+    /* PLACEHOLDER LATAR BELAKANG: MESTI MUAT NAIK magikrompak_bg.jpg */
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
+                url('magikrompak_bg.jpg') no-repeat center center / cover; /* Guna nama fail ini */
+    
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--color-text-light); 
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 0;
+}
+
+.profile-placeholder {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background-color: var(--color-secondary); 
+    border: 6px solid var(--color-primary); 
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.1); 
+    margin-bottom: 30px;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-content h1 {
+    font-size: 5.5em;
+    font-weight: 900;
+    color: var(--color-text-light);
+    letter-spacing: 6px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
+}
+
+.hero-content h2 {
+    font-size: 1.6em;
+    font-weight: 400;
+    color: var(--color-primary); 
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.hero-content .description {
+    max-width: 800px;
+    font-size: 1.1em;
+    color: #DDDDDD; 
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+.btn {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 12px 30px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-3px);
+    color: var(--color-text-light);
+}
+
+/* --- Card Grid Layout (Our Team / Cast) --- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--color-text-light);
+    border: 1px solid #E0E0E0;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    min-height: 270px; 
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    background-color: #FEF3F3;
+}
+
+.card-icon {
+    font-size: 2.5em;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: var(--color-secondary);
+}
+
+.card .year {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 5px 10px;
+    font-size: 0.8em;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.card .description-card {
+    font-size: 0.95em;
+    color: #555555;
+}
+
+/* Dark Section Style */
+.dark-section {
+    background-color: var(--color-secondary);
+}
+
+.dark-section .section-title {
+    color: var(--color-text-light);
+}
+
+.dark-section .card {
+    background-color: #1A1A1A;
+    border: 1px solid #333333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dark-section .card:hover {
+    background-color: #282828;
+}
+
+.dark-section .card h3 {
+    color: var(--color-text-light);
+}
+
+.dark-section .card-icon {
+    color: var(--color-primary);
+}
+
+.dark-section .card .description-card {
+    color: #AAAAAA;
+}
+
+/* --- Trailer & Synopsis Section --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.trailer-card {
+    grid-column: span 1;
+}
+
+.synopsis-card {
+    grid-column: span 1;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    background-color: #EEE;
+    border: 1px solid #CCC;
+    box-shadow: none;
+    transition: none;
+}
+
+.synopsis-card:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.synopsis-content h3 {
+    color: var(--color-primary);
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.synopsis-content p {
+    margin-bottom: 20px;
+    font-size: 1em;
+    line-height: 1.7;
+    color: var(--color-text-dark);
+}
+
+.synopsis-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.synopsis-content ul li {
+    font-size: 0.95em;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    color: #555;
+}
+
+.synopsis-content ul li i {
+    color: var(--color-primary);
+    margin-right: 10px;
+}
+
+.video-placeholder {
+    background-color: var(--color-secondary);
+}
+
+.video-placeholder iframe {
+    display: block;
+}
+
+/* --- Gallery Section --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    text-align: center;
+    background-color: #1A1A1A;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-item p {
+    color: #DDD;
+    padding: 15px 10px;
+    font-size: 0.9em;
+}
+
+/* --- Video Section (Card Style) --- */
+.video-grid {
+    gap: 30px;
+}
+
+.video-card {
+    background-color: #1A1A1A;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    border: 2px solid #1A1A1A;
+    text-align: left;
+}
+
+.video-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--color-primary);
+}
+
+.video-card .project-image-placeholder img {
+    height: 200px;
+}
+
+.video-card .project-info {
+    padding: 20px;
+}
+
+.video-card h3 {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.video-card .btn {
+    background-color: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    padding: 8px 15px;
+}
+
+.video-card .btn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+
+/* --- Contact Section --- */
+.contact-section {
+    padding-bottom: 80px;
+}
+
+.contact-content {
+    text-align: center;
+    max-width: 700px;
+}
+
+.contact-info {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.contact-info p {
+    font-size: 1.1em;
+    color: var(--color-text-light);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-icon {
+    font-size: 1.2em;
+    color: var(--color-primary);
+    margin-right: 15px;
+    width: 25px; 
+    text-align: center;
+}
+
+.contact-content .description {
+    color: #AAAAAA;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--color-secondary);
+    padding: 30px 0;
+    border-top: 3px solid var(--color-primary);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-name {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+.footer-nav {
+    list-style: none;
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.footer-nav li {
+    margin: 0 10px;
+}
+
+.footer-nav a {
+    color: #AAAAAA;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+
+.footer-nav a:hover {
+    color: var(--color-primary);
+}
+
+.copyright {
+    color: #777777;
+    font-size: 0.85em;
+}
+
+/* --- Responsiveness (Mobile First) --- */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; 
+    }
+
+    .hero-content h1 {
+        font-size: 3.5em;
+        letter-spacing: 3px;
+    }
+
+    .hero-content h2 {
+        font-size: 1.2em;
+    }
+
+    .section-title {
+        font-size: 2em;
+    }
+
+    .card-grid, .project-grid, .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-content {
+        justify-content: center; 
+    }
+    
+    .trailer-card, .synopsis-card {
+        grid-column: span 1;
+    }
+
+    .synopsis-card {
+        padding: 20px;
+    }
+}
+
+/* --- Fade In Animation (CSS) --- */
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.8s ease-out;
+}
+
+.active.fade-in {
+    opacity: 1;
+}
